@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.7-SNAPSHOT'
+    id 'fabric-loom' version '1.14-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -13,10 +13,6 @@ base {
 repositories {
     mavenCentral()
     mavenLocal()
-    maven {
-        name = "Meteor"
-        url = "https://maven.meteordev.org/releases"
-    }
 }
 
 dependencies {
@@ -24,9 +20,6 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    
-    // AUTISM Client API dependency
-    modImplementation "com.autismclient:autism-client:${project.autism_version}"
 }
 
 processResources {

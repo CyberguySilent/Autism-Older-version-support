@@ -1,20 +1,17 @@
 package com.autismoldersupport;
 
-import net.fabricmc.api.ModInitializer;
+import net.fabricmc.api.ClientModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class AutismOlderSupport implements ModInitializer {
+public class AutismOlderSupport implements ClientModInitializer {
     public static final String MOD_ID = "autism-older-support";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     @Override
-    public void onInitialize() {
-        LOGGER.info("AUTISM Older Version Support loaded - making the client work on legacy versions");
-        
-        // Version compatibility initialization
+    public void onInitializeClient() {
+        LOGGER.info("AUTISM Older Version Support loaded");
         VersionCompatibility.init();
-        
-        LOGGER.info("Compatibility layer initialized for Minecraft 1.21+");
+        LOGGER.info("Compatibility layer initialized");
     }
 }

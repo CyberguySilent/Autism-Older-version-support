@@ -3,18 +3,17 @@
   "id": "autism-older-support",
   "version": "${version}",
   "name": "AUTISM Older Version Support",
-  "description": "Compatibility addon that lets AUTISM Client run on older Minecraft versions",
+  "description": "Compatibility addon that backports AUTISM Client from 26.2 to older Minecraft versions",
   "authors": [
     "n1kvz"
   ],
   "contact": {
-    "sources": "https://github.com/yourusername/Autism-Older-version-support"
+    "sources": "https://github.com/bestluaucoder/Autism-Older-version-support"
   },
   "license": "GPL-3.0",
-  "icon": "assets/autism-older-support/icon.png",
-  "environment": "*",
+  "environment": "client",
   "entrypoints": {
-    "main": [
+    "client": [
       "com.autismoldersupport.AutismOlderSupport"
     ]
   },
@@ -23,8 +22,10 @@
   ],
   "depends": {
     "fabricloader": ">=0.16.0",
-    "minecraft": "1.21.x",
-    "java": ">=21",
-    "autism-client": "*"
+    "minecraft": ">=1.21 <=1.21.11",
+    "java": ">=21"
+  },
+  "suggests": {
+    "autism": "*"
   }
 }
