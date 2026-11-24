@@ -8,7 +8,17 @@ public class VersionCompatibility {
     private static int minorVersion = 0;
     
     public static void init() {
-        mcVersion = SharedConstants.getGameVersion().getName();
+        // Works with both Yarn (getName) and official Mojang (getVersionName) mappings
+        var gameVersion = SharedConstants.getGameVersion();
+        try {
+            mcVersion = (String) gameVersion.getClass().getMethod("getName").invoke(gameVersion);
+        } catch (Exception e) {
+            try {
+                mcVersion = (String) gameVersion.getClass().getMethod("getVersionName").invoke(gameVersion);
+            } catch (Exception ex) {
+                mcVersion = gameVersion.toString();
+            }
+        }
         AutismOlderSupport.LOGGER.info("Detected Minecraft version: {}", mcVersion);
         
         parseVersion();
